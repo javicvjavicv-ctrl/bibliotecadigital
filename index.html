@@ -25,548 +25,257 @@
 
   * { margin:0; padding:0; box-sizing:border-box; }
   html, body { height:100%; }
+  body { background:var(--bg); color:var(--ink); font-family:'Jost',sans-serif; min-height:100vh; }
 
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Jost', sans-serif;
-    min-height: 100vh;
-  }
-
-  /* ── HEADER ── */
+  /* HEADER */
   header {
-    background: var(--ink);
-    color: var(--bg);
-    padding: 0 32px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background:var(--ink); color:var(--bg);
+    padding:0 32px; height:60px;
+    display:flex; align-items:center; justify-content:space-between;
+    position:sticky; top:0; z-index:100;
   }
-
   .logo {
-    font-family: 'Lora', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-family:'Lora',serif; font-size:1.3rem; font-weight:700;
+    letter-spacing:-0.3px; display:flex; align-items:center; gap:10px;
   }
-  .logo-icon { font-size: 1.1rem; opacity: 0.8; }
-
-  .header-actions { display: flex; align-items: center; gap: 12px; }
-
-  .btn-connect {
-    background: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 0 16px;
-    height: 34px;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.82rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.18s;
-    display: flex;
-    align-items: center;
-    gap: 7px;
+  .header-actions { display:flex; align-items:center; gap:10px; }
+  .btn-settings {
+    background:transparent; border:1px solid rgba(245,240,232,0.2);
+    color:rgba(245,240,232,0.7); border-radius:6px;
+    padding:0 12px; height:32px;
+    font-family:'Jost',sans-serif; font-size:0.8rem;
+    cursor:pointer; transition:all 0.18s;
+    display:flex; align-items:center; gap:6px;
   }
-  .btn-connect:hover { background: var(--accent2); }
-  .btn-connect:disabled { opacity: 0.5; cursor: not-allowed; }
-
-  .user-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.8rem;
-    color: rgba(245,240,232,0.7);
+  .btn-settings:hover { border-color:rgba(245,240,232,0.4); color:var(--bg); }
+  .btn-reload {
+    background:var(--accent); color:white; border:none; border-radius:6px;
+    padding:0 14px; height:32px;
+    font-family:'Jost',sans-serif; font-size:0.8rem; font-weight:500;
+    cursor:pointer; transition:background 0.18s;
+    display:flex; align-items:center; gap:6px;
   }
-  .user-avatar {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    background: var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem; font-weight: 600; color: white;
-  }
+  .btn-reload:hover { background:var(--accent2); }
 
-  .btn-signout {
-    background: transparent;
-    border: 1px solid rgba(245,240,232,0.2);
-    color: rgba(245,240,232,0.6);
-    border-radius: 5px;
-    padding: 3px 10px;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.75rem;
-    cursor: pointer;
-    transition: all 0.18s;
-  }
-  .btn-signout:hover { border-color: rgba(245,240,232,0.4); color: var(--bg); }
-
-  /* ── TOOLBAR ── */
+  /* TOOLBAR */
   .toolbar {
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    padding: 12px 32px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    background:var(--bg2); border-bottom:1px solid var(--border);
+    padding:12px 32px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;
   }
-
   .search-input {
-    flex: 1;
-    min-width: 200px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    padding: 8px 14px 8px 36px;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.88rem;
-    color: var(--ink);
-    transition: border-color 0.2s;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239C9080' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: 12px center;
+    flex:1; min-width:200px;
+    background:var(--surface); border:1px solid var(--border); border-radius:7px;
+    padding:8px 14px 8px 36px;
+    font-family:'Jost',sans-serif; font-size:0.88rem; color:var(--ink);
+    transition:border-color 0.2s;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239C9080' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:12px center;
   }
-  .search-input:focus { outline: none; border-color: var(--accent); }
-  .search-input::placeholder { color: var(--ink3); }
-
+  .search-input:focus { outline:none; border-color:var(--accent); }
+  .search-input::placeholder { color:var(--ink3); }
   .filter-select {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    padding: 8px 12px;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.85rem;
-    color: var(--ink);
-    cursor: pointer;
-    transition: border-color 0.2s;
+    background:var(--surface); border:1px solid var(--border); border-radius:7px;
+    padding:8px 12px; font-family:'Jost',sans-serif; font-size:0.85rem; color:var(--ink);
+    cursor:pointer; transition:border-color 0.2s;
   }
-  .filter-select:focus { outline: none; border-color: var(--accent); }
+  .filter-select:focus { outline:none; border-color:var(--accent); }
+  .stats-bar { margin-left:auto; font-size:0.78rem; color:var(--ink3); white-space:nowrap; }
 
-  .stats-bar {
-    margin-left: auto;
-    font-size: 0.78rem;
-    color: var(--ink3);
-    white-space: nowrap;
-  }
+  /* LAYOUT */
+  .layout { display:flex; min-height:calc(100vh - 60px); }
 
-  /* ── MAIN LAYOUT ── */
-  .layout {
-    display: flex;
-    min-height: calc(100vh - 60px);
-  }
-
-  /* ── SIDEBAR ── */
+  /* SIDEBAR */
   .sidebar {
-    width: 220px;
-    flex-shrink: 0;
-    background: var(--bg2);
-    border-right: 1px solid var(--border);
-    padding: 20px 0;
-    position: sticky;
-    top: 60px;
-    height: calc(100vh - 60px);
-    overflow-y: auto;
+    width:210px; flex-shrink:0;
+    background:var(--bg2); border-right:1px solid var(--border);
+    padding:20px 0; position:sticky; top:60px;
+    height:calc(100vh - 60px); overflow-y:auto;
   }
-
-  .sidebar-section { margin-bottom: 24px; }
+  .sidebar-section { margin-bottom:24px; }
   .sidebar-label {
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink3);
-    padding: 0 20px;
-    margin-bottom: 6px;
+    font-size:0.65rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--ink3); padding:0 20px; margin-bottom:6px;
   }
-
   .sidebar-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 7px 20px;
-    font-size: 0.85rem;
-    color: var(--ink2);
-    cursor: pointer;
-    transition: all 0.15s;
-    border-left: 2px solid transparent;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:7px 20px; font-size:0.85rem; color:var(--ink2);
+    cursor:pointer; transition:all 0.15s; border-left:2px solid transparent;
   }
-  .sidebar-item:hover { background: rgba(26,23,20,0.04); color: var(--ink); }
+  .sidebar-item:hover { background:rgba(26,23,20,0.04); color:var(--ink); }
   .sidebar-item.active {
-    background: rgba(139,58,42,0.06);
-    color: var(--accent);
-    border-left-color: var(--accent);
-    font-weight: 500;
+    background:rgba(139,58,42,0.06); color:var(--accent);
+    border-left-color:var(--accent); font-weight:500;
   }
-
   .sidebar-count {
-    font-size: 0.72rem;
-    background: var(--border);
-    border-radius: 10px;
-    padding: 1px 7px;
-    color: var(--ink3);
+    font-size:0.72rem; background:var(--border); border-radius:10px;
+    padding:1px 7px; color:var(--ink3);
   }
-  .sidebar-item.active .sidebar-count {
-    background: rgba(139,58,42,0.12);
-    color: var(--accent);
-  }
+  .sidebar-item.active .sidebar-count { background:rgba(139,58,42,0.12); color:var(--accent); }
+  .status-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .dot-all     { background:var(--ink3); }
+  .dot-read    { background:var(--read); }
+  .dot-reading { background:var(--reading); }
+  .dot-pending { background:var(--pending); }
 
-  .status-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .dot-all    { background: var(--ink3); }
-  .dot-read   { background: var(--read); }
-  .dot-reading { background: var(--reading); }
-  .dot-pending { background: var(--pending); }
+  /* CONTENT */
+  .content { flex:1; padding:28px 32px; overflow-y:auto; }
 
-  /* ── CONTENT ── */
-  .content {
-    flex: 1;
-    padding: 28px 32px;
-    overflow-y: auto;
-  }
-
-  /* ── STATES ── */
+  /* STATES */
   .state-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-    text-align: center;
-    gap: 16px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    min-height:400px; text-align:center; gap:16px;
   }
-  .state-icon { font-size: 3rem; opacity: 0.3; }
-  .state-title { font-family: 'Lora', serif; font-size: 1.4rem; color: var(--ink2); }
-  .state-desc { font-size: 0.9rem; color: var(--ink3); max-width: 340px; line-height: 1.6; }
-  .state-btn {
-    background: var(--accent);
-    color: white; border: none; border-radius: 7px;
-    padding: 10px 24px;
-    font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 500;
-    cursor: pointer; transition: background 0.18s; margin-top: 6px;
-  }
-  .state-btn:hover { background: var(--accent2); }
-
+  .state-icon { font-size:3rem; opacity:0.3; }
+  .state-title { font-family:'Lora',serif; font-size:1.4rem; color:var(--ink2); }
+  .state-desc { font-size:0.9rem; color:var(--ink3); max-width:360px; line-height:1.6; }
   .loading-spinner {
-    width: 36px; height: 36px;
-    border: 2px solid var(--border);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    width:36px; height:36px; border:2px solid var(--border);
+    border-top-color:var(--accent); border-radius:50%;
+    animation:spin 0.8s linear infinite;
   }
-  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes spin { to { transform:rotate(360deg); } }
 
-  /* ── BOOK GRID ── */
+  /* CONFIG BOX */
+  .config-box {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:10px; padding:28px; max-width:500px; width:100%;
+  }
+  .config-box h2 { font-family:'Lora',serif; font-size:1.15rem; margin-bottom:8px; }
+  .config-box p { font-size:0.85rem; color:var(--ink2); line-height:1.6; margin-bottom:20px; }
+  .config-steps {
+    font-size:0.8rem; color:var(--ink2); line-height:1.9;
+    background:var(--bg); border-radius:7px; padding:12px 16px; margin-bottom:20px;
+  }
+  .config-steps li { list-style:decimal; margin-left:16px; }
+  .config-field { margin-bottom:12px; }
+  .config-label { font-size:0.75rem; font-weight:500; color:var(--ink2); margin-bottom:5px; display:block; letter-spacing:0.03em; }
+  .config-input {
+    width:100%; background:var(--bg); border:1px solid var(--border); border-radius:7px;
+    padding:10px 14px; font-family:'Jost',sans-serif; font-size:0.88rem; color:var(--ink);
+  }
+  .config-input:focus { outline:none; border-color:var(--accent); }
+  .config-btn {
+    width:100%; background:var(--accent); color:white; border:none; border-radius:7px;
+    padding:11px; font-family:'Jost',sans-serif; font-size:0.9rem; font-weight:500;
+    cursor:pointer; transition:background 0.18s; margin-top:4px;
+  }
+  .config-btn:hover { background:var(--accent2); }
+  .config-note { font-size:0.75rem; color:var(--ink3); line-height:1.5; margin-top:12px; text-align:center; }
+  .config-note a { color:var(--accent); }
+
+  /* BOOK GRID */
   .books-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(148px, 1fr));
+    gap:20px;
   }
-
-  .book-card {
-    cursor: pointer;
-    transition: transform 0.18s;
-    animation: fadeUp 0.3s ease both;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .book-card:hover { transform: translateY(-3px); }
+  .book-card { cursor:pointer; transition:transform 0.18s; animation:fadeUp 0.3s ease both; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+  .book-card:hover { transform:translateY(-3px); }
 
   .book-cover {
-    width: 100%;
-    aspect-ratio: 2/3;
-    border-radius: 4px 8px 8px 4px;
-    background: var(--bg2);
-    box-shadow: -3px 3px 0 rgba(0,0,0,0.08), var(--shadow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 10px;
+    width:100%; aspect-ratio:2/3; border-radius:4px 8px 8px 4px;
+    background:var(--bg2);
+    box-shadow:-3px 3px 0 rgba(0,0,0,0.08), var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden; position:relative; margin-bottom:10px;
   }
-
-  .book-cover img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    border-radius: 4px 8px 8px 4px;
-  }
-
+  .book-cover img { width:100%; height:100%; object-fit:cover; border-radius:4px 8px 8px 4px; }
   .book-cover-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px;
-    text-align: center;
-    height: 100%;
-    background: linear-gradient(145deg, var(--bg2), var(--bg));
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; padding:12px; text-align:center; height:100%;
+    background:linear-gradient(145deg, var(--bg2), var(--bg));
   }
-
-  .book-cover-placeholder .ph-icon { font-size: 1.8rem; opacity: 0.25; }
-  .book-cover-placeholder .ph-title {
-    font-family: 'Lora', serif;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--ink2);
-    line-height: 1.3;
-    word-break: break-word;
-  }
-  .book-cover-placeholder .ph-author {
-    font-size: 0.62rem;
-    color: var(--ink3);
-  }
+  .ph-icon { font-size:1.8rem; opacity:0.25; }
+  .ph-title { font-family:'Lora',serif; font-size:0.72rem; font-weight:600; color:var(--ink2); line-height:1.3; word-break:break-word; }
+  .ph-author { font-size:0.62rem; color:var(--ink3); }
 
   .status-badge {
-    position: absolute;
-    top: 6px; right: 6px;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    border: 2px solid white;
+    position:absolute; top:6px; right:6px;
+    width:10px; height:10px; border-radius:50%; border:2px solid white;
   }
-  .sb-read    { background: var(--read); }
-  .sb-reading { background: var(--reading); }
-  .sb-pending { background: var(--pending); }
+  .sb-read    { background:var(--read); }
+  .sb-reading { background:var(--reading); }
+  .sb-pending { background:var(--pending); }
 
   .book-title {
-    font-family: 'Lora', serif;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--ink);
-    line-height: 1.3;
-    margin-bottom: 3px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-family:'Lora',serif; font-size:0.82rem; font-weight:600; color:var(--ink);
+    line-height:1.3; margin-bottom:3px;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
   }
-  .book-author {
-    font-size: 0.73rem;
-    color: var(--ink3);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  .book-author { font-size:0.73rem; color:var(--ink3); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
-  /* ── BOOK DETAIL PANEL ── */
+  /* PANEL */
   .panel-overlay {
-    position: fixed; inset: 0;
-    background: rgba(26,23,20,0.5);
-    z-index: 200;
-    display: none;
-    align-items: center;
-    justify-content: flex-end;
+    position:fixed; inset:0; background:rgba(26,23,20,0.5);
+    z-index:200; display:none; align-items:center; justify-content:flex-end;
   }
-  .panel-overlay.open { display: flex; }
-
+  .panel-overlay.open { display:flex; }
   .panel {
-    background: var(--surface);
-    width: 380px;
-    max-width: 95vw;
-    height: 100vh;
-    overflow-y: auto;
-    box-shadow: var(--shadow-lg);
-    display: flex;
-    flex-direction: column;
-    animation: slideIn 0.25s ease;
+    background:var(--surface); width:360px; max-width:95vw; height:100vh;
+    overflow-y:auto; box-shadow:var(--shadow-lg); display:flex; flex-direction:column;
+    animation:slideIn 0.22s ease;
   }
-  @keyframes slideIn {
-    from { transform: translateX(100%); }
-    to   { transform: translateX(0); }
-  }
-
-  .panel-header {
-    padding: 20px 24px 0;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .panel-close {
-    background: none; border: none;
-    font-size: 1.4rem; cursor: pointer;
-    color: var(--ink3); line-height: 1;
-    transition: color 0.15s;
-  }
-  .panel-close:hover { color: var(--ink); }
-
+  @keyframes slideIn { from { transform:translateX(100%); } to { transform:translateX(0); } }
+  .panel-header { padding:18px 20px 0; display:flex; justify-content:flex-end; }
+  .panel-close { background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--ink3); transition:color 0.15s; }
+  .panel-close:hover { color:var(--ink); }
   .panel-cover {
-    width: 140px;
-    aspect-ratio: 2/3;
-    margin: 0 auto 20px;
-    border-radius: 4px 10px 10px 4px;
-    box-shadow: -4px 4px 0 rgba(0,0,0,0.1), var(--shadow-lg);
-    overflow: hidden;
-    flex-shrink: 0;
+    width:130px; aspect-ratio:2/3; margin:0 auto 20px;
+    border-radius:4px 10px 10px 4px;
+    box-shadow:-4px 4px 0 rgba(0,0,0,0.1), var(--shadow-lg);
+    overflow:hidden; flex-shrink:0;
   }
-  .panel-cover img { width: 100%; height: 100%; object-fit: cover; }
+  .panel-cover img { width:100%; height:100%; object-fit:cover; }
   .panel-cover-ph {
-    width: 100%; height: 100%;
-    background: linear-gradient(145deg, var(--bg2), var(--bg));
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 8px; padding: 12px; text-align: center;
+    width:100%; height:100%; background:linear-gradient(145deg, var(--bg2), var(--bg));
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; padding:12px; text-align:center;
   }
-  .panel-cover-ph span { font-size: 2rem; opacity: 0.2; }
-
-  .panel-body { padding: 0 24px 32px; }
-
-  .panel-title {
-    font-family: 'Lora', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 6px;
-  }
-  .panel-author { font-size: 0.88rem; color: var(--ink2); margin-bottom: 16px; }
-
-  .panel-meta {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-  .meta-chip {
-    font-size: 0.72rem;
-    padding: 3px 10px;
-    border-radius: 12px;
-    background: var(--bg2);
-    color: var(--ink2);
-    border: 1px solid var(--border);
-  }
-
-  .panel-section-label {
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink3);
-    margin-bottom: 8px;
-  }
-
-  .status-selector {
-    display: flex; gap: 8px;
-    margin-bottom: 24px;
-  }
+  .panel-cover-ph span { font-size:2rem; opacity:0.2; }
+  .panel-body { padding:0 22px 32px; }
+  .panel-title { font-family:'Lora',serif; font-size:1.15rem; font-weight:700; line-height:1.3; margin-bottom:5px; }
+  .panel-author { font-size:0.88rem; color:var(--ink2); margin-bottom:16px; }
+  .panel-meta { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
+  .meta-chip { font-size:0.72rem; padding:3px 10px; border-radius:12px; background:var(--bg2); color:var(--ink2); border:1px solid var(--border); }
+  .panel-section-label { font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink3); margin-bottom:8px; }
+  .status-selector { display:flex; gap:8px; margin-bottom:20px; }
   .status-opt {
-    flex: 1;
-    padding: 8px 4px;
-    border-radius: 7px;
-    border: 1.5px solid var(--border);
-    background: transparent;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.18s;
-    color: var(--ink2);
-    text-align: center;
+    flex:1; padding:8px 4px; border-radius:7px; border:1.5px solid var(--border);
+    background:transparent; font-family:'Jost',sans-serif; font-size:0.74rem; font-weight:500;
+    cursor:pointer; transition:all 0.18s; color:var(--ink2); text-align:center;
   }
-  .status-opt:hover { border-color: var(--ink3); }
-  .status-opt.active-read    { background: rgba(45,106,79,0.08);  border-color: var(--read);    color: var(--read); }
-  .status-opt.active-reading { background: rgba(29,94,138,0.08);  border-color: var(--reading); color: var(--reading); }
-  .status-opt.active-pending { background: rgba(156,122,26,0.08); border-color: var(--pending); color: var(--pending); }
+  .status-opt:hover { border-color:var(--ink3); }
+  .status-opt.active-read    { background:rgba(45,106,79,0.08);  border-color:var(--read);    color:var(--read); }
+  .status-opt.active-reading { background:rgba(29,94,138,0.08);  border-color:var(--reading); color:var(--reading); }
+  .status-opt.active-pending { background:rgba(156,122,26,0.08); border-color:var(--pending); color:var(--pending); }
+  .panel-filename { font-size:0.73rem; color:var(--ink3); word-break:break-all; margin-top:12px; padding-top:12px; border-top:1px solid var(--border); }
 
-  .panel-filename {
-    font-size: 0.75rem;
-    color: var(--ink3);
-    word-break: break-all;
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
-  }
-
-  /* config screen */
-  .config-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 24px;
-    max-width: 520px;
-    margin: 0 auto;
-  }
-  .config-box h2 {
-    font-family: 'Lora', serif;
-    font-size: 1.1rem;
-    margin-bottom: 6px;
-  }
-  .config-box p {
-    font-size: 0.85rem;
-    color: var(--ink2);
-    line-height: 1.6;
-    margin-bottom: 16px;
-  }
-  .config-input {
-    width: 100%;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    padding: 10px 14px;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.88rem;
-    color: var(--ink);
-    margin-bottom: 12px;
-  }
-  .config-input:focus { outline: none; border-color: var(--accent); }
-  .config-note {
-    font-size: 0.78rem;
-    color: var(--ink3);
-    line-height: 1.5;
-    margin-top: 8px;
-  }
-  .config-note a { color: var(--accent); }
-  .config-steps {
-    font-size: 0.8rem;
-    color: var(--ink2);
-    line-height: 1.8;
-    background: var(--bg);
-    border-radius: 7px;
-    padding: 12px 16px;
-    margin-bottom: 16px;
-    counter-reset: steps;
-  }
-  .config-steps li { list-style: decimal; margin-left: 16px; }
-
-  @media (max-width: 640px) {
-    .sidebar { display: none; }
-    .toolbar { padding: 10px 16px; }
-    .content { padding: 20px 16px; }
-    header { padding: 0 16px; }
+  @media (max-width:640px) {
+    .sidebar { display:none; }
+    .toolbar { padding:10px 16px; }
+    .content { padding:20px 16px; }
+    header { padding:0 16px; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <span class="logo-icon">📚</span>
-    Biblioteca
-  </div>
+  <div class="logo">📚 Biblioteca</div>
   <div class="header-actions" id="headerActions">
-    <button class="btn-connect" id="btnConnect">Conectar Google Drive</button>
+    <button class="btn-reload" id="btnReload" style="display:none;" onclick="loadBooks()">↻ Actualizar</button>
+    <button class="btn-settings" id="btnSettings">⚙ Configuración</button>
   </div>
 </header>
 
-<div style="display:flex; flex-direction:column; min-height:calc(100vh - 60px);">
-
+<div style="display:flex;flex-direction:column;min-height:calc(100vh - 60px);">
   <div class="toolbar" id="toolbar" style="display:none;">
     <input class="search-input" id="searchInput" type="text" placeholder="Buscar por título, autor…" />
-    <select class="filter-select" id="filterGenre">
-      <option value="">Todos los géneros</option>
-    </select>
     <select class="filter-select" id="sortSelect">
       <option value="title">Título A-Z</option>
       <option value="author">Autor A-Z</option>
-      <option value="recent">Reciente</option>
+      <option value="recent">Más reciente</option>
     </select>
     <div class="stats-bar" id="statsBar"></div>
   </div>
@@ -575,50 +284,40 @@
     <aside class="sidebar" id="sidebar" style="display:none;">
       <div class="sidebar-section">
         <div class="sidebar-label">Estado</div>
-        <div class="sidebar-item active" data-filter="all" id="sf-all">
-          <span style="display:flex;align-items:center;gap:8px;">
-            <span class="status-dot dot-all"></span>Todos
-          </span>
+        <div class="sidebar-item active" data-filter="all">
+          <span style="display:flex;align-items:center;gap:8px;"><span class="status-dot dot-all"></span>Todos</span>
           <span class="sidebar-count" id="sc-all">0</span>
         </div>
-        <div class="sidebar-item" data-filter="read" id="sf-read">
-          <span style="display:flex;align-items:center;gap:8px;">
-            <span class="status-dot dot-read"></span>Leídos
-          </span>
+        <div class="sidebar-item" data-filter="read">
+          <span style="display:flex;align-items:center;gap:8px;"><span class="status-dot dot-read"></span>Leídos</span>
           <span class="sidebar-count" id="sc-read">0</span>
         </div>
-        <div class="sidebar-item" data-filter="reading" id="sf-reading">
-          <span style="display:flex;align-items:center;gap:8px;">
-            <span class="status-dot dot-reading"></span>Leyendo
-          </span>
+        <div class="sidebar-item" data-filter="reading">
+          <span style="display:flex;align-items:center;gap:8px;"><span class="status-dot dot-reading"></span>Leyendo</span>
           <span class="sidebar-count" id="sc-reading">0</span>
         </div>
-        <div class="sidebar-item" data-filter="pending" id="sf-pending">
-          <span style="display:flex;align-items:center;gap:8px;">
-            <span class="status-dot dot-pending"></span>Pendientes
-          </span>
+        <div class="sidebar-item" data-filter="pending">
+          <span style="display:flex;align-items:center;gap:8px;"><span class="status-dot dot-pending"></span>Pendientes</span>
           <span class="sidebar-count" id="sc-pending">0</span>
         </div>
       </div>
     </aside>
 
-    <main class="content" id="content">
-      <!-- states rendered here -->
-    </main>
+    <main class="content" id="content"></main>
   </div>
 </div>
 
-<!-- Book detail panel -->
+<!-- Panel detalle -->
 <div class="panel-overlay" id="panelOverlay">
-  <div class="panel" id="panel">
+  <div class="panel">
     <div class="panel-header">
       <button class="panel-close" id="panelClose">&times;</button>
     </div>
     <div class="panel-cover" id="panelCover"></div>
     <div class="panel-body">
-      <div class="panel-title" id="panelTitle"></div>
+      <div class="panel-title"  id="panelTitle"></div>
       <div class="panel-author" id="panelAuthor"></div>
-      <div class="panel-meta" id="panelMeta"></div>
+      <div class="panel-meta"   id="panelMeta"></div>
       <div class="panel-section-label">Estado de lectura</div>
       <div class="status-selector">
         <button class="status-opt" data-status="pending">📌 Pendiente</button>
@@ -632,291 +331,178 @@
 
 <script>
 (function () {
-  // ── CONFIG ────────────────────────────────────────────
-  // Replace with your Google Cloud OAuth Client ID
-  var CLIENT_ID = '';
+  // ── STATE ────────────────────────────────────────────
+  var API_KEY   = '';
   var FOLDER_ID = '';
-  var SCOPES = 'https://www.googleapis.com/auth/drive.readonly';
-
-  // ── STATE ─────────────────────────────────────────────
-  var allBooks = [];
-  var statusMap = {};     // fileId -> 'read'|'reading'|'pending'
+  var allBooks  = [];
+  var statusMap = {};
   var activeFilter = 'all';
   var currentBookId = null;
-  var tokenClient = null;
-  var accessToken = null;
 
-  var STORAGE_KEY = 'epub-library-status';
-  var CONFIG_KEY  = 'epub-library-config';
+  var SK_STATUS = 'epub-lib-status';
+  var SK_CONFIG = 'epub-lib-config';
 
-  // ── DOM ───────────────────────────────────────────────
+  // ── DOM ──────────────────────────────────────────────
   var contentEl    = document.getElementById('content');
   var toolbarEl    = document.getElementById('toolbar');
   var sidebarEl    = document.getElementById('sidebar');
-  var headerActEl  = document.getElementById('headerActions');
   var searchInput  = document.getElementById('searchInput');
-  var filterGenre  = document.getElementById('filterGenre');
   var sortSelect   = document.getElementById('sortSelect');
   var statsBar     = document.getElementById('statsBar');
   var panelOverlay = document.getElementById('panelOverlay');
-  var panelClose   = document.getElementById('panelClose');
+  var btnSettings  = document.getElementById('btnSettings');
+  var btnReload    = document.getElementById('btnReload');
 
-  // ── PERSISTENCE ───────────────────────────────────────
+  // ── STORAGE ──────────────────────────────────────────
   async function loadStatus() {
-    try {
-      var res = await window.storage.get(STORAGE_KEY);
-      statusMap = res ? JSON.parse(res.value) : {};
-    } catch (_) { statusMap = {}; }
+    try { var r = await window.storage.get(SK_STATUS); statusMap = r ? JSON.parse(r.value) : {}; }
+    catch(_) { statusMap = {}; }
   }
-
   async function saveStatus() {
-    try { await window.storage.set(STORAGE_KEY, JSON.stringify(statusMap)); } catch(_) {}
+    try { await window.storage.set(SK_STATUS, JSON.stringify(statusMap)); } catch(_) {}
   }
-
   async function loadConfig() {
     try {
-      var res = await window.storage.get(CONFIG_KEY);
-      if (res) {
-        var cfg = JSON.parse(res.value);
-        CLIENT_ID = cfg.clientId || '';
-        FOLDER_ID = cfg.folderId || '';
-      }
+      var r = await window.storage.get(SK_CONFIG);
+      if (r) { var c = JSON.parse(r.value); API_KEY = c.apiKey||''; FOLDER_ID = c.folderId||''; }
     } catch(_) {}
   }
-
-  async function saveConfig(clientId, folderId) {
-    CLIENT_ID = clientId;
-    FOLDER_ID = folderId;
-    try { await window.storage.set(CONFIG_KEY, JSON.stringify({ clientId, folderId })); } catch(_) {}
+  async function saveConfig(k, f) {
+    API_KEY = k; FOLDER_ID = f;
+    try { await window.storage.set(SK_CONFIG, JSON.stringify({ apiKey:k, folderId:f })); } catch(_) {}
   }
 
-  // ── RENDER HELPERS ────────────────────────────────────
-  function showLoading(msg) {
-    contentEl.innerHTML =
-      '<div class="state-screen">' +
-        '<div class="loading-spinner"></div>' +
-        '<div class="state-desc">' + (msg || 'Cargando…') + '</div>' +
-      '</div>';
-  }
-
-  function showError(msg) {
-    contentEl.innerHTML =
-      '<div class="state-screen">' +
-        '<div class="state-icon">⚠️</div>' +
-        '<div class="state-title">Algo salió mal</div>' +
-        '<div class="state-desc">' + msg + '</div>' +
-      '</div>';
-  }
-
-  function showWelcome() {
-    contentEl.innerHTML =
-      '<div class="state-screen">' +
-        '<div class="state-icon">📚</div>' +
-        '<div class="state-title">Tu biblioteca personal</div>' +
-        '<div class="state-desc">Conecta Google Drive para acceder a tus archivos EPUB y organizar tu colección.</div>' +
-        '<button class="state-btn" id="stateConnectBtn">Conectar Google Drive</button>' +
-      '</div>';
-    document.getElementById('stateConnectBtn').addEventListener('click', startAuth);
-  }
-
+  // ── CONFIG SCREEN ─────────────────────────────────────
   function showConfig() {
+    toolbarEl.style.display = 'none';
+    sidebarEl.style.display = 'none';
+    btnReload.style.display = 'none';
     contentEl.innerHTML =
-      '<div class="state-screen" style="align-items:flex-start;padding:8px 0;">' +
+      '<div class="state-screen" style="align-items:center;padding:20px 0;">' +
         '<div class="config-box">' +
-          '<h2>Configuración de acceso</h2>' +
-          '<p>Para conectar con tu Google Drive necesitas un Client ID de Google Cloud y el ID de la carpeta con tus EPUBs.</p>' +
+          '<h2>Configuración</h2>' +
+          '<p>Introduce tu API Key de Google y el ID de la carpeta de Drive donde tienes los EPUBs. La carpeta debe ser pública (compartida como "Cualquier persona con el enlace").</p>' +
           '<ol class="config-steps">' +
             '<li>Ve a <a href="https://console.cloud.google.com" target="_blank" style="color:var(--accent)">console.cloud.google.com</a></li>' +
             '<li>Crea un proyecto y activa la <strong>Google Drive API</strong></li>' +
-            '<li>En "Credenciales" crea un <strong>OAuth 2.0 Client ID</strong> (tipo: Web application)</li>' +
-            '<li>Añade <strong>' + location.origin + '</strong> a los orígenes autorizados</li>' +
-            '<li>Copia el Client ID</li>' +
-            '<li>En Drive, abre la carpeta con tus EPUBs y copia el ID de la URL</li>' +
+            '<li>En "Credenciales" crea una <strong>API Key</strong></li>' +
+            '<li>En Drive, comparte la carpeta como <strong>"Cualquier persona con el enlace"</strong></li>' +
+            '<li>Copia el ID de la carpeta desde la URL de Drive</li>' +
           '</ol>' +
-          '<input class="config-input" id="cfgClientId" placeholder="Client ID (xxxxxx.apps.googleusercontent.com)" value="' + esc(CLIENT_ID) + '" />' +
-          '<input class="config-input" id="cfgFolderId" placeholder="ID de la carpeta de Google Drive" value="' + esc(FOLDER_ID) + '" />' +
-          '<button class="state-btn" id="cfgSaveBtn" style="width:100%;">Guardar y conectar</button>' +
-          '<p class="config-note" style="margin-top:12px;">La app solo solicita permiso de lectura. Nunca modifica tus archivos.</p>' +
+          '<div class="config-field">' +
+            '<label class="config-label">API Key de Google</label>' +
+            '<input class="config-input" id="cfgKey" placeholder="AIzaSy…" value="' + esc(API_KEY) + '" />' +
+          '</div>' +
+          '<div class="config-field">' +
+            '<label class="config-label">ID de la carpeta de Drive</label>' +
+            '<input class="config-input" id="cfgFolder" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs…" value="' + esc(FOLDER_ID) + '" />' +
+          '</div>' +
+          '<button class="config-btn" id="cfgSave">Guardar y cargar biblioteca</button>' +
+          '<p class="config-note">La API Key solo tiene permiso de lectura. Tus archivos no se modifican.</p>' +
         '</div>' +
       '</div>';
 
-    document.getElementById('cfgSaveBtn').addEventListener('click', async function() {
-      var cid = document.getElementById('cfgClientId').value.trim();
-      var fid = document.getElementById('cfgFolderId').value.trim();
-      if (!cid || !fid) { alert('Rellena ambos campos.'); return; }
-      await saveConfig(cid, fid);
-      initGIS();
+    document.getElementById('cfgSave').addEventListener('click', async function() {
+      var k = document.getElementById('cfgKey').value.trim();
+      var f = document.getElementById('cfgFolder').value.trim();
+      if (!k || !f) { alert('Rellena los dos campos.'); return; }
+      await saveConfig(k, f);
+      loadBooks();
     });
   }
 
-  // ── GOOGLE IDENTITY SERVICES ──────────────────────────
-  function initGIS() {
-    if (!CLIENT_ID) { showConfig(); return; }
-    if (typeof google === 'undefined' || !google.accounts) {
-      showError('No se pudo cargar Google Identity Services. Revisa tu conexión.');
-      return;
-    }
-    tokenClient = google.accounts.oauth2.initTokenClient({
-      client_id: CLIENT_ID,
-      scope: SCOPES,
-      callback: function(resp) {
-        if (resp.error) { showError('Error de autenticación: ' + resp.error); return; }
-        accessToken = resp.access_token;
-        onSignedIn();
+  // ── LOAD BOOKS ────────────────────────────────────────
+  window.loadBooks = async function() {
+    if (!API_KEY || !FOLDER_ID) { showConfig(); return; }
+    showLoading('Cargando tu biblioteca…');
+    try {
+      var q  = "'" + FOLDER_ID + "' in parents and trashed=false and (mimeType='application/epub+zip' or fileExtension='epub' or name contains '.epub')";
+      var url = 'https://www.googleapis.com/drive/v3/files'
+              + '?q=' + encodeURIComponent(q)
+              + '&fields=' + encodeURIComponent('files(id,name,size,createdTime,thumbnailLink)')
+              + '&pageSize=500'
+              + '&orderBy=name'
+              + '&key=' + encodeURIComponent(API_KEY);
+
+      var resp = await fetch(url);
+      if (!resp.ok) {
+        var err = await resp.json();
+        throw new Error((err.error && err.error.message) || 'Error ' + resp.status);
       }
-    });
-    startAuth();
-  }
-
-  function startAuth() {
-    if (!CLIENT_ID || !FOLDER_ID) { showConfig(); return; }
-    if (!tokenClient) { initGIS(); return; }
-    tokenClient.requestAccessToken({ prompt: '' });
-  }
-
-  async function onSignedIn() {
-    // Get user info
-    try {
-      var uResp = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
-        headers: { Authorization: 'Bearer ' + accessToken }
-      });
-      var uData = await uResp.json();
-      headerActEl.innerHTML =
-        '<div class="user-info">' +
-          '<div class="user-avatar">' + (uData.name || 'U').charAt(0).toUpperCase() + '</div>' +
-          '<span>' + esc(uData.name || uData.email || '') + '</span>' +
-        '</div>' +
-        '<button class="btn-signout" id="btnSignOut">Salir</button>';
-      document.getElementById('btnSignOut').addEventListener('click', signOut);
-    } catch(_) {}
-
-    toolbarEl.style.display = 'flex';
-    sidebarEl.style.display = 'block';
-    await loadBooks();
-  }
-
-  function signOut() {
-    if (accessToken) google.accounts.oauth2.revoke(accessToken, function(){});
-    accessToken = null;
-    allBooks = [];
-    toolbarEl.style.display = 'none';
-    sidebarEl.style.display = 'none';
-    headerActEl.innerHTML = '<button class="btn-connect" id="btnConnect">Conectar Google Drive</button>';
-    document.getElementById('btnConnect').addEventListener('click', startAuth);
-    showWelcome();
-  }
-
-  // ── DRIVE API ─────────────────────────────────────────
-  async function driveGet(url) {
-    var resp = await fetch(url, { headers: { Authorization: 'Bearer ' + accessToken } });
-    if (!resp.ok) throw new Error('Drive API error ' + resp.status);
-    return resp.json();
-  }
-
-  async function loadBooks() {
-    showLoading('Leyendo tu biblioteca…');
-    try {
-      var q = encodeURIComponent(
-        "'" + FOLDER_ID + "' in parents and (mimeType='application/epub+zip' or fileExtension='epub' or name contains '.epub') and trashed=false"
-      );
-      var fields = encodeURIComponent('files(id,name,size,createdTime,modifiedTime,thumbnailLink,imageMediaMetadata)');
-      var url = 'https://www.googleapis.com/drive/v3/files?q=' + q + '&fields=' + fields + '&pageSize=200&orderBy=name';
-      var data = await driveGet(url);
+      var data = await resp.json();
       var files = data.files || [];
 
       allBooks = files.map(function(f) {
-        var title  = f.name.replace(/\.epub$/i, '');
+        var raw    = f.name.replace(/\.epub$/i, '');
+        var title  = raw;
         var author = '';
-        // Try to parse "Author - Title" or "Title (Author)" patterns
-        var m1 = title.match(/^(.+?)\s+-\s+(.+)$/);
-        var m2 = title.match(/^(.+?)\s+\((.+?)\)$/);
-        if (m1) { author = m1[1]; title = m1[2]; }
-        else if (m2) { title = m2[1]; author = m2[2]; }
-        return {
-          id:          f.id,
-          name:        f.name,
-          title:       title,
-          author:      author,
-          thumb:       f.thumbnailLink || null,
-          createdTime: f.createdTime,
-          size:        f.size
-        };
+        var m1 = raw.match(/^(.+?)\s+-\s+(.+)$/);
+        var m2 = raw.match(/^(.+?)\s+\((.+?)\)$/);
+        if (m1) { author = m1[1].trim(); title = m1[2].trim(); }
+        else if (m2) { title = m2[1].trim(); author = m2[2].trim(); }
+        return { id:f.id, name:f.name, title:title, author:author, thumb:f.thumbnailLink||null, createdTime:f.createdTime, size:f.size };
       });
 
+      toolbarEl.style.display = 'flex';
+      sidebarEl.style.display = 'block';
+      btnReload.style.display = 'flex';
       renderLibrary();
     } catch(e) {
-      showError('No se pudo acceder a Drive. ' + e.message);
+      showError('No se pudo acceder a Drive.<br><small style="color:var(--ink3)">' + esc(e.message) + '</small>');
     }
-  }
+  };
 
-  // ── RENDER LIBRARY ────────────────────────────────────
+  // ── RENDER ────────────────────────────────────────────
   function renderLibrary() {
     var query  = searchInput.value.toLowerCase();
-    var genre  = filterGenre.value;
     var sort   = sortSelect.value;
     var filter = activeFilter;
 
     var books = allBooks.filter(function(b) {
       if (query && !b.title.toLowerCase().includes(query) && !b.author.toLowerCase().includes(query)) return false;
-      if (filter !== 'all' && (statusMap[b.id] || 'none') !== filter) return false;
+      if (filter !== 'all' && (statusMap[b.id]||'none') !== filter) return false;
       return true;
     });
 
-    books.sort(function(a, b) {
-      if (sort === 'author') return (a.author || a.title).localeCompare(b.author || b.title);
+    books.sort(function(a,b) {
+      if (sort === 'author') return (a.author||a.title).localeCompare(b.author||b.title);
       if (sort === 'recent') return new Date(b.createdTime) - new Date(a.createdTime);
       return a.title.localeCompare(b.title);
     });
 
-    // Update counts
-    var counts = { all: allBooks.length, read: 0, reading: 0, pending: 0 };
-    allBooks.forEach(function(b) {
-      var s = statusMap[b.id];
-      if (s && counts[s] !== undefined) counts[s]++;
-    });
-    document.getElementById('sc-all').textContent     = counts.all;
-    document.getElementById('sc-read').textContent    = counts.read;
-    document.getElementById('sc-reading').textContent = counts.reading;
-    document.getElementById('sc-pending').textContent = counts.pending;
-    statsBar.textContent = books.length + ' de ' + allBooks.length + ' libros';
+    // sidebar counts
+    var c = { all:allBooks.length, read:0, reading:0, pending:0 };
+    allBooks.forEach(function(b) { var s=statusMap[b.id]; if(s&&c[s]!==undefined) c[s]++; });
+    document.getElementById('sc-all').textContent     = c.all;
+    document.getElementById('sc-read').textContent    = c.read;
+    document.getElementById('sc-reading').textContent = c.reading;
+    document.getElementById('sc-pending').textContent = c.pending;
+    statsBar.textContent = books.length + ' de ' + allBooks.length + ' libro' + (allBooks.length!==1?'s':'');
 
     if (!books.length) {
-      contentEl.innerHTML =
-        '<div class="state-screen">' +
-          '<div class="state-icon">🔍</div>' +
-          '<div class="state-title">Sin resultados</div>' +
-          '<div class="state-desc">Prueba con otra búsqueda o cambia el filtro de estado.</div>' +
-        '</div>';
+      contentEl.innerHTML = '<div class="state-screen"><div class="state-icon">🔍</div><div class="state-title">Sin resultados</div><div class="state-desc">Prueba con otra búsqueda o cambia el filtro.</div></div>';
       return;
     }
 
     var grid = document.createElement('div');
     grid.className = 'books-grid';
-
     books.forEach(function(book, i) {
       var status = statusMap[book.id] || null;
-      var card = document.createElement('div');
+      var card   = document.createElement('div');
       card.className = 'book-card';
-      card.style.animationDelay = Math.min(i * 0.03, 0.5) + 's';
+      card.style.animationDelay = Math.min(i*0.025, 0.5) + 's';
 
-      var badgeHTML = status
-        ? '<span class="status-badge sb-' + status + '"></span>'
-        : '';
-
-      var coverHTML = book.thumb
-        ? '<img src="' + esc(book.thumb) + '" alt="" loading="lazy" />' + badgeHTML
-        : '<div class="book-cover-placeholder">' +
-            '<span class="ph-icon">📖</span>' +
-            '<span class="ph-title">' + esc(book.title) + '</span>' +
-            (book.author ? '<span class="ph-author">' + esc(book.author) + '</span>' : '') +
-          '</div>' + badgeHTML;
+      var badge = status ? '<span class="status-badge sb-'+status+'"></span>' : '';
+      var cover = book.thumb
+        ? '<img src="'+esc(book.thumb)+'" alt="" loading="lazy" />'+badge
+        : '<div class="book-cover-placeholder"><span class="ph-icon">📖</span><span class="ph-title">'+esc(book.title)+'</span>'+(book.author?'<span class="ph-author">'+esc(book.author)+'</span>':'')+'</div>'+badge;
 
       card.innerHTML =
-        '<div class="book-cover">' + coverHTML + '</div>' +
-        '<div class="book-title">' + esc(book.title) + '</div>' +
-        (book.author ? '<div class="book-author">' + esc(book.author) + '</div>' : '');
+        '<div class="book-cover">'+cover+'</div>'+
+        '<div class="book-title">'+esc(book.title)+'</div>'+
+        (book.author?'<div class="book-author">'+esc(book.author)+'</div>':'');
 
-      card.addEventListener('click', function() { openPanel(book); });
+      card.addEventListener('click', function(){ openPanel(book); });
       grid.appendChild(card);
     });
 
@@ -929,95 +515,78 @@
     currentBookId = book.id;
     var status = statusMap[book.id] || null;
 
-    // Cover
     var coverEl = document.getElementById('panelCover');
-    if (book.thumb) {
-      coverEl.innerHTML = '<img src="' + esc(book.thumb) + '" alt="" />';
-    } else {
-      coverEl.innerHTML = '<div class="panel-cover-ph"><span>📖</span></div>';
-    }
+    coverEl.innerHTML = book.thumb
+      ? '<img src="'+esc(book.thumb)+'" alt="" />'
+      : '<div class="panel-cover-ph"><span>📖</span></div>';
 
     document.getElementById('panelTitle').textContent  = book.title;
     document.getElementById('panelAuthor').textContent = book.author || 'Autor desconocido';
     document.getElementById('panelFilename').textContent = '📄 ' + book.name;
 
-    // Meta chips
     var meta = '';
-    if (book.size) meta += '<span class="meta-chip">' + formatSize(book.size) + '</span>';
-    if (book.createdTime) meta += '<span class="meta-chip">' + formatDate(book.createdTime) + '</span>';
+    if (book.size)        meta += '<span class="meta-chip">'+formatSize(book.size)+'</span>';
+    if (book.createdTime) meta += '<span class="meta-chip">'+formatDate(book.createdTime)+'</span>';
     document.getElementById('panelMeta').innerHTML = meta;
 
-    // Status buttons
     document.querySelectorAll('.status-opt').forEach(function(btn) {
       var s = btn.dataset.status;
-      btn.className = 'status-opt' + (status === s ? ' active-' + s : '');
-      btn.addEventListener('click', function() {
-        var newStatus = statusMap[book.id] === s ? null : s;
-        if (newStatus) statusMap[book.id] = newStatus;
-        else delete statusMap[book.id];
+      btn.className = 'status-opt' + (status===s?' active-'+s:'');
+      btn.onclick = function() {
+        var cur = statusMap[book.id];
+        if (cur === s) delete statusMap[book.id];
+        else statusMap[book.id] = s;
         saveStatus();
-        // Update buttons
         document.querySelectorAll('.status-opt').forEach(function(b) {
-          var bs = b.dataset.status;
-          b.className = 'status-opt' + (newStatus === bs ? ' active-' + bs : '');
+          b.className = 'status-opt' + (statusMap[book.id]===b.dataset.status?' active-'+b.dataset.status:'');
         });
         renderLibrary();
-      });
+      };
     });
 
     panelOverlay.classList.add('open');
   }
 
-  panelClose.addEventListener('click', function() {
-    panelOverlay.classList.remove('open');
-  });
-  panelOverlay.addEventListener('click', function(e) {
-    if (e.target === panelOverlay) panelOverlay.classList.remove('open');
-  });
+  document.getElementById('panelClose').addEventListener('click', function(){ panelOverlay.classList.remove('open'); });
+  panelOverlay.addEventListener('click', function(e){ if(e.target===panelOverlay) panelOverlay.classList.remove('open'); });
 
-  // ── SIDEBAR FILTERS ───────────────────────────────────
-  ['all','read','reading','pending'].forEach(function(f) {
-    document.getElementById('sf-' + f).addEventListener('click', function() {
-      activeFilter = f;
-      document.querySelectorAll('.sidebar-item').forEach(function(el) {
-        el.classList.toggle('active', el.dataset.filter === f);
-      });
+  // ── SIDEBAR ───────────────────────────────────────────
+  document.querySelectorAll('.sidebar-item').forEach(function(el) {
+    el.addEventListener('click', function() {
+      activeFilter = el.dataset.filter;
+      document.querySelectorAll('.sidebar-item').forEach(function(x){ x.classList.toggle('active', x===el); });
       renderLibrary();
     });
   });
 
   searchInput.addEventListener('input', renderLibrary);
-  filterGenre.addEventListener('change', renderLibrary);
   sortSelect.addEventListener('change', renderLibrary);
+  btnSettings.addEventListener('click', showConfig);
 
-  // ── UTILS ─────────────────────────────────────────────
+  // ── HELPERS ───────────────────────────────────────────
+  function showLoading(msg) {
+    contentEl.innerHTML = '<div class="state-screen"><div class="loading-spinner"></div><div class="state-desc">'+(msg||'Cargando…')+'</div></div>';
+  }
+  function showError(msg) {
+    contentEl.innerHTML = '<div class="state-screen"><div class="state-icon">⚠️</div><div class="state-title">Error de acceso</div><div class="state-desc">'+msg+'</div><button class="config-btn" style="max-width:220px;margin-top:8px;" onclick="showConfig()">Revisar configuración</button></div>';
+    window.showConfig = showConfig;
+  }
   function esc(s) {
     return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
-  function formatSize(bytes) {
-    var mb = bytes / 1024 / 1024;
-    return mb < 1 ? Math.round(bytes/1024) + ' KB' : mb.toFixed(1) + ' MB';
-  }
-  function formatDate(iso) {
-    return new Date(iso).toLocaleDateString('es-ES', { year:'numeric', month:'short' });
-  }
-
-  // ── HEADER CONNECT BUTTON ─────────────────────────────
-  document.getElementById('btnConnect').addEventListener('click', startAuth);
+  function formatSize(b) { var m=b/1024/1024; return m<1?Math.round(b/1024)+' KB':m.toFixed(1)+' MB'; }
+  function formatDate(iso) { return new Date(iso).toLocaleDateString('es-ES',{year:'numeric',month:'short'}); }
 
   // ── INIT ──────────────────────────────────────────────
   async function init() {
     await loadStatus();
     await loadConfig();
-    showWelcome();
+    if (API_KEY && FOLDER_ID) loadBooks();
+    else showConfig();
   }
 
   init();
 })();
 </script>
-
-<!-- Google Identity Services -->
-<script src="https://accounts.google.com/gsi/client" async></script>
-
 </body>
 </html>
